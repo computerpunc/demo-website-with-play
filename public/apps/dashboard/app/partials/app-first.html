@@ -1,0 +1,28 @@
+<div class="container">
+    <!--UPDATE if itunes URL show app icon from appstore else show new app image-->
+    <h6 style="display:inline; vertical-align:top;">Get Started - {{app.name}}</h6>
+    <!--<a href="#/apps/{{app.id}}/settings" style="display:inline; vertical-align:top; line-height:5.6em; margin-left:20px;">edit</a>-->
+    <hr/>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <div id="hideoncomplete" style="width:940px">
+                    <img ng-src="{{config.servers.secured.www}}/assets/img/1-icon.png" />
+                    <a class="signup green-button-2" href="/downloads/sdk" style="margin-left: 10px; vertical-align:top; margin-top:2px;" ng-click="trackDownloadAndRedirect('/downloads/sdk')">Download SDK</a>
+                    <br /><br /><br />
+                    <img ng-src="{{config.servers.secured.www}}/assets/img/2-icon.png" />
+                    <div class="dashboardform-label" style="display:inline; font-size:24px; line-height: 2.6em; vertical-align:top; margin-left: 10px;">Grab your App ID:</div>
+                    <div class="app-token-first">{{app.uuid}}</div>
+                    <br /><br /><br />
+                    <img ng-src="{{config.servers.secured.www}}/assets/img/3-icon.png" />
+                    <div class="dashboardform-label" style="display:inline; font-size:24px; line-height: 2.6em; vertical-align:top; margin-left: 10px;">Visit the</div>
+                    <a ng-href="{{config.servers.www}}/docs/addsdk.html" style="display:inline; vertical-align:top; margin-left: 5px; line-height: 2.6em; font-size: 24px;">Install SDK Guide</a>
+                    <!--<div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                <div class="error-message" ng-show="0!=status&&1!=status&&200!=status"><br />*Oops, something happened... Try again.*</div>
+                <div id="dashboardform-button-app">
+                    <a a class="signup green-button-2" ng-click="saveCertsAndRedirect()">Save</a>-->
+                    <br /><br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

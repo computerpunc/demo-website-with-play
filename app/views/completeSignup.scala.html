@@ -1,0 +1,34 @@
+@(userId:Long, email:String, resetPasswordToken:String)
+
+@main("example.com / Signup") {
+<div class="container" ng-controller="ResetPasswordController">
+    <h2>Welcome to example.com</h2>
+    <hr/>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <div id="hideoncomplete">
+                Create a password and you'll be up and running right away.
+                <form name='completeSignupForm' ng-submit="resetPassword(completeSignupForm.$valid, @userId, '@email', '@resetPasswordToken')">
+                    <div class="dashboardform-label">Email</div>
+                    <input class="dashboardform-input-disabled" type='email-disabled' spellcheck='false' placeholder='emailaddress' disabled='disabled' value='@email' />
+                    <div class="dashboardform-label">Password</div>
+                    <input class="dashboardform-input" type='password' spellcheck='false' ng-model="password.new1" required autofocus />
+                    <div class="dashboardform-label">Confirm Password</div>
+                    <input class="dashboardform-input" type='password' spellcheck='false' ng-model="password.new2" required />
+                    <!--<div style="color: red; font-weight: bold; display: none;" id="invalidemail" ng-show="status==403">*Invalid Password. Try again.*</div>-->
+                    <div class="error-message-inline" ng-show="0==status&&password.new1.length<6">*Password is too short*</div>
+                    <div class="error-message-inline" ng-show="0==status&&password.new1.length>5&&password.new1!=password.new2">*Passwords don't match*</div>
+                    <div class="error-message" ng-show="0!=status&&1!=status&&200!=status"><br />*Oops, something happened... Try again.*</div>
+                    <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                </form>
+                <div id="dashboardform-button">
+                    <a a class="signup green-button-2" onclick="$('Form').submit()">Save</a>
+                </div>
+                <div style="color: #ccc; font-size: 12px; margin-top:30px;">By signing up you agree to the <a href="@play.api.Play.current.configuration.getString("controllers.wwwServer").get/terms">Terms & Service</a> and <a href="@play.api.Play.current.configuration.getString("controllers.wwwServer").get/terms">Privacy Policy</a> </div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+        </div>
+    </div>
+</div>
+
+}

@@ -1,0 +1,44 @@
+# app-engine noise
+war/WEB-INF/appengine-generated/*
+
+# netbeans noise
+nbproject/*
+
+# IntelliJ noise
+.idea/*
+public/apps/dashboard/.idea/*
+public/apps/www/.idea/*
+public/.idea/*
+*.iml
+*.ipr
+*.iws
+
+# play!framework noise
+set-env.sh
+#bin/*
+data/*
+moduels/*
+test-result/*
+precompiled/*
+# conf/application.conf
+conf/*.p12
+conf/deploy.log
+server.pid
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+
+# Textmate - if you build your xcode projects with it
+*.tm_build_errors
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+

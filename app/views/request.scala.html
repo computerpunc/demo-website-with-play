@@ -1,0 +1,43 @@
+@()
+
+@main("example.com / Login") {
+<!DOCTYPE html>
+<div class="container">
+	<h2>Login</h2>
+	<hr/>
+		<div id="dashboardpage">
+              <div id="dashboardform">
+                <div id="hideoncomplete">
+                  <div class="dashboardform-label">Email</div>
+                  <input class="dashboardform-input" type='text' id='emailInput' />
+                  <div class="dashboardform-label">Password</div>
+                  <input class="dashboardform-input" type='password' id='passwordInput' />
+                  <div style="color: red; font-weight: bold; display: none;" id="invalidemail">*Invalid Password. Try again.*</div>
+                  <!--<div class="dashboardform-label">Your app name/iTunes url</div>
+                  <textarea class="dashboardform-input" id='projectInput' placeholder='(optional)' rows="3"></textarea>-->
+                  <div id="dashboardform-button">
+                  <form>
+                  <a href="@play.api.Play.current.configuration.getString("controllers.application.appServer").get/forgotpassword" style="float:left; margin-top:26px">Forgot your password?</a>
+        		  <input type="button" class="green-button-forms" value="Login" onclick="document.location.href='../dashboard/index.html';">
+       			  </form>
+                  </div>
+                  <div class="dashboardform-label-no-account">Don't have an account?&nbsp;&nbsp;&nbsp;<a href="../signup/index.html">Sign up</a></div>
+                </div>
+              </div>
+        </div>
+      </div>
+		<!--<div class="span8 columns">
+			<img style="float: right" src="../images/about.png"/>
+		</div>-->
+	</div>
+
+
+	<div style="clear: both">
+
+</div>
+</div>
+</div>
+
+
+</body>
+}

@@ -1,0 +1,12 @@
+@()
+Hi,
+
+Thanks for signing up with example.com! We're super excited about ... . We can't wait to see how people use it.
+
+We are rolling out invites on an ongoing basis, and we'll be sending out your invite soon.
+
+If you any have question please contact support@@example.com.
+
+Thanks,
+
+The example.com Team

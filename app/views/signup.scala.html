@@ -1,0 +1,63 @@
+@()
+
+@main("example.com / Signup") {
+
+<div class="container" ng-controller="RegisterUserController">
+    <div ng-show="200!=status;">
+        <h2>Signup for example.com</h2>
+        <hr/>
+        <div id="dashboardpage">
+            <div id="dashboardform">
+                <div id="hideoncomplete">
+                    <form name='signupForm' ng-submit="register(signupForm.$valid)">
+                        <!--<div class="dashboardform-label">Name</div>
+                        <input class="dashboardform-input" name='nameField' type='text' spellcheck='false' id='nameInput' ng-model="request.name" />-->
+                        <!--<div class="dashboardform-label-signup">Enter your email:</div>-->
+                        <input class="dashboardform-input" type='email' spellcheck='false' placeholder='Email' name='emailField' ng-model="request.email" required/>
+                        <div class="error-message-inline" style="display: none;" id="invalidemail" ng-show="0==status&&signupForm.emailField.$invalid">*Invalid Email Address*</div>
+                        <!--IF USER EXISTS RESET PASSWORD-->
+                        <!--<div class="dashboardform-label">Your app name/iTunes url</div>
+                        <textarea class="dashboardform-input" type='text' spellcheck='false' placeholder='(optional)' rows='3' id='urlInput' ng-model="request.appUrl"></textarea>-->
+                        <div class="error-message-inline" style="display: none;" ng-show="0!=status&&1!=status&&200!=status"><br />*Oops, something happened... Try again.*</div>
+                        <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                    </form>
+                    <div id="dashboardform-button">
+                        <!--<div><a class="signup green-button-2" onclick="$('Form').submit()">Sign up</a></div>-->
+                        <div><a class="btn-sign-up btn-sign-up-bottom" onclick="$('Form').submit()">Sign up</a></div>
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:none;" ng-show="200==status">
+        <h3>Thank you!</h3>
+        <hr/>
+        <div id="dashboardpage">
+            <div id="dashboardform">
+                <div id="hideoncomplete">
+                    We'll be sending you an email with your SDK access shortly.<br><br>
+                    If you like what you see, please share it!
+
+                    <div id="twitter">
+                        <!--<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://example.com/signup.html" data-via="example.com" data-size="large">Tweet</a>-->
+                        <br /><a href="https://twitter.com/share" class="twitter-share-button" data-url="@play.api.Play.current.configuration.getString("controllers.application.appServer").get/signup" data-via="example.com" data-size="large" data-count="none">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <br />
+                        <script src="@play.api.Play.current.configuration.getString("controllers.wwwSecuredServer").get/assets/js/FB.Share.js" type="text/javascript"></script>
+                        <br />
+                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fexample.com%2Fsignup&amp;send=false&amp;layout=button_count&amp;width=48&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21&amp;appId=187764421339712" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:48px; height:21px;" allowTransparency="true"></iframe>
+                        <br /><br />
+                        <a href="https://twitter.com/example.com" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <br /><br /> <br /><br /><br /> <br /><br /><br /> <br /><br /><br /> <br /><br /><br /> <br />
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+}

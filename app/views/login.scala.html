@@ -1,0 +1,39 @@
+@(redirect:Option[String])
+
+@main("example.com / Login") {
+<div class="container" ng-controller="LoginController">
+    <h2>Login</h2>
+    <hr/>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <div id="hideoncomplete">
+                <form name="loginForm" ng-submit="login(loginForm.$valid, '@redirect');">
+                    <div class="dashboardform-label">Email</div>
+                    <input class="dashboardform-input" name='emailField' type='email' spellcheck='false' ng-model="user.email" required /></input>
+                    <div class="error-message-inline"style="display: none;" ng-show="0==status&&loginForm.emailField.$invalid">*Invalid email format*</div>
+                    <div class="dashboardform-label">Password</div>
+                    <input class="dashboardform-input" name='passwordField' type='password' spellcheck='false' ng-model="user.password" required />
+                    <div class="error-message-inline" style="display: none;" ng-show="0==status&&loginForm.passwordField.$invalid">*Password required*</div>
+                    <div class="error-message-inline" style="display: none;" ng-show="403==status">*The email or password you entered is incorrect*</div>
+                    <div class="error-message" style="display: none;" ng-show="0!=status&&1!=status&&200!=status&&403!=status"><br />*Oops, something happened... Try again.*</div>
+                    <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                </form>
+                <div id="dashboardform-button">
+                    <a href="/password/forgot" style="float:left; margin-top:14px">Forgot your password?</a>
+                    <div><a class="btn-sign-up btn-sign-up-bottom" onclick="$('Form').submit()">Login</a>
+                    <!--<div><a class="signup green-button-2" onclick="$('Form').submit()">Login</a></div>-->
+                    <!--<input type="submit" class="green-button-forms" value="Login" />-->
+                </div>
+                <!--<script type="text/javascript">
+                document.loginform.email.focus();
+                </script>-->
+            </div>
+            <div class="dashboardform-label-no-account">New user?&nbsp;&nbsp;<a href="@play.api.Play.current.configuration.getString("controllers.application.appServer").get/signup">Signup here</a>
+                <!--<div><a href="/signup" class="signup green-button-2">Sign up, it's Free!</a></div>-->
+                <!--<input class="green-button-forms" value="Get started, sign up >>" type="submit" onclick="window.location='@play.api.Play.current.configuration.getString("controllers.application.appServer").get/signup'" target="main" />-->
+            </div>
+            <br /><br /><br />
+        </div>
+    </div>
+
+}

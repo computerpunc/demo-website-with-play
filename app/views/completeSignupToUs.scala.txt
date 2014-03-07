@@ -1,0 +1,7 @@
+@(user:User, extraInfo:String)
+
+Signup Info:
+@extraInfo
+
+Signup link:
+@play.api.Play.current.configuration.getString("controllers.application.appServer").get/signup/complete?userId=@(user.id)&email=@java.net.URLEncoder.encode(user.email, "UTF8")&resetPasswordToken=@(user.resetPasswordToken)

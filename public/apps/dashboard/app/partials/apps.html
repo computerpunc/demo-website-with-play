@@ -1,0 +1,19 @@
+<div class="container">
+    <!--UPDATE if itunes URL -- show app icon from appstore -- else show new app image-->
+    <h2 style="display:inline;">Your Apps</h2>
+    <div style="display:inline; float:right;">
+    <a class="signup green-button-2" href="#/apps/new">Add app</a>
+    </div>
+    <hr/>
+    <div style="text-align:center; margin-top: 160px; display: none;" ng-hide="hasApps()"><h2>No apps yet. Click "Add app" to get started.</h2></div>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <div id="hideoncomplete" style="width:800px" ng-repeat="app in apps">
+                <img ng-src="{{config.servers.secured.www}}/assets/img/new-app-grey-icon-new-app-white-smaller.png" />&nbsp;&nbsp;&nbsp;<h7><a href="#/apps/{{app.id}}" style="display:inline; vertical-align:top; margin-left: 10px; line-height: 1.9em;">{{app.name}}</a></h7>
+                <div style="display:inline; vertical-align:top; line-height:3.9em;" class="app-token">APP ID: {{app.uuid}}</div>
+                <!--<div style="display:block; vertical-align:top; margin-top:-47px; margin-left:840px;"><a href="#/apps/{{app.id}}/settings">edit</a></div>-->
+                <br /><br /><br />
+            </div>
+        </div>
+    </div>
+</div>

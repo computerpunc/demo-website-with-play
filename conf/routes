@@ -1,0 +1,46 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Utility Pages
+GET     /                           controllers.Application.index
+GET     /login                      controllers.Application.login(redirect:Option[String])
+GET     /request                    controllers.Application.request
+GET     /password/forgot            controllers.Application.forgotPassword
+GET     /password/reset             controllers.Application.resetPassword(userId:Long, email:String, resetPasswordToken:String)
+GET     /signup                     controllers.Application.signup
+GET     /signup/complete            controllers.Application.completeSignup(userId:Long, email:String, resetPasswordToken:String)
+
+# Users
+GET     /users                      controllers.Core.usersByEmailAndPassword(email:String, password:String)
+GET     /users/:id                  controllers.Core.userByIdAndAccessToken(id:Long, accessToken:String)
+POST    /users                      controllers.Core.registerUser
+PUT     /users/:id/password         controllers.Core.updateUserPassword(id:Long, currentPassword:Option[String]?=None, resetPasswordToken:Option[String]?=None)
+PUT     /users/:id                  controllers.Core.updateUser(id:Long, accessToken:String)
+POST    /users/:id/accessToken      controllers.Core.accessToken(id:Long, password:String)
+
+# Apps
+GET     /apps                       controllers.Core.apps(userId:Long, accessToken:String)
+POST    /apps                       controllers.Core.registerApp(userId:Long, accessToken:String)
+PUT     /apps/:appId/form           controllers.Core.updateAppUsingForm(appId:Long, userId:Long, accessToken:String)
+GET     /apps/:appId                controllers.Core.app(appId:Long, userId:Long, accessToken:String)
+PUT     /apps/:appId                controllers.Core.updateApp(appId:Long, userId:Long, accessToken:String)
+
+GET     /angularjs/config.js        controllers.Application.angularJsConfig
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/js/*file            controllers.Assets.at(path="/public/javascripts", file)
+GET     /assets/img/*file           controllers.Assets.at(path="/public/images", file)
+GET     /assets/css/*file           controllers.Assets.at(path="/public/stylesheets", file)
+GET     /assets/fonts/*file         controllers.Assets.at(path="/public/fonts", file)
+
+GET     /dashboard                  controllers.Application.dashboard
+GET     /dashboard/*file            controllers.Assets.at(path="/public/apps/dashboard/app", file)
+
+GET     /downloads/sdk              controllers.Application.sdk
+GET     /docs                       controllers.Application.docs
+GET     /ard/*redirect              controllers.Application.redirectOrLogin(redirect)
+GET     /rrd                        controllers.Application.redirectRandomly(base:String, ext:Option[String], r:String, ref:Option[String])
+
+# play.core.Router.Routes

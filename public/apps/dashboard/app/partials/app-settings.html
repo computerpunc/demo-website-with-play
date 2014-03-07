@@ -1,0 +1,23 @@
+<div class="container">
+    <h12>Edit </h12><h6 style="display:inline;">{{app.name}}</h6/>
+    <hr/>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <div id="hideoncomplete">
+                <form name="dform" ng-submit="save(dform.$valid)">
+                    <div class="dashboardform-label">Game/app name</div>
+                    <input class="dashboardform-input" name='nameField' type='text' id='nameInput' ng-model="app.name" required/>
+                    <div class="error-message-inline" ng-show="0==status&&dform.nameField.$invalid"><br />*Please enter an app name*</div>
+                    <div class="dashboardform-label">App iTunes url</div>
+                    <textarea class="dashboardform-input" id='projectInput' ng-model="app.downloadUrl" rows="3"></textarea>
+                    <div class="error-message" ng-show="0!=status&&1!=status&&200!=status"><br />*Oops, something happened... Try again.*</div>
+                    <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                </form>
+                <div id="dashboardform-button">
+                    <a a class="signup green-button-2" onclick="$('Form').submit()">Save</a>
+                    <br /><br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

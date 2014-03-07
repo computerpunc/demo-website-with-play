@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>example.com / Dashboard</title>
+    <script src="dashboard/lib/jquery-1.7.1.min.js"></script>
+    <script src="dashboard/lib/angular/angular-1.0.0.js"></script>
+    <script src="dashboard/lib/angular/angular-cookies-1.0.0.js"></script>
+    <script src="dashboard/lib/angular/angular-resource-1.0.0.js"></script>
+    <script src="/angularjs/config.js"></script>
+    <script src="dashboard/js/services.js"></script>
+    <script src="dashboard/js/controllers.js"></script>
+    <script src="dashboard/js/filters.js"></script>
+    <script src="dashboard/js/directives.js"></script>
+    <script src="dashboard/js/app.js"></script>
+    <link rel="stylesheet" ng-href="{{config.servers.secured.www}}/assets/css/base.css"/>
+    <link rel="stylesheet" ng-href="{{config.servers.secured.www}}/assets/css/main.css"/>
+    <link rel="stylesheet" ng-href="{{config.servers.secured.www}}/assets/css/coolbuttons.css"/>
+    <link rel="shortcut icon" type="image/png" ng-href="{{config.servers.secured.www}}/assets/img/favicon.ico">
+
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+</head>
+<body>
+<div id="wrap">
+    <div id="main">
+        <div id="header">
+            <div class="container" style="position: relative">
+                <div class="logo-dashboard">
+                    <a href="/">
+                        <img ng-src="{{config.servers.secured.www}}/assets/img/logo.png"/>
+                    </a>
+                    <div id="top-links-dashboard">
+                        <a href="#">Dashboard</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a ng-href="{{config.servers.www}}/docs/quickstart.html">Quickstart</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a ng-click="trackDownloadAndRedirect('/downloads/sdk')">Download SDK</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a ng-href="{{config.servers.www}}/docs/overview.html">Docs</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#/account">{{user.email}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/login">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="position: relative">
+        <div ng-view ng-show="checkLoggedIn" style="display: none;"></div>
+    </div>
+</div>
+<div style="clear: both"></div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span2 columns">
+                <div style="height: 90px"></div>
+            </div>
+            <div class="span6 columns">
+                <div style="height: 110px"></div>
+                <div>
+                    <span class="big-text">example.com</span>
+                    <div class="medium-text" style="margin-left: 14px; display: inline;">
+                        <a href="https://twitter.com/example.com" class="twitter-follow-button" data-show-count="false">Follow @example.com</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a ng-href="{{config.servers.www}}/about/" style="color: #888; font-size: 12px; vertical-align: top;">About</a>&nbsp;&nbsp;
+                    <a href="http://blog.example.com" style="color: #888; font-size: 12px; vertical-align: top;">Blog</a>&nbsp;&nbsp;
+                    <a ng-href="{{config.servers.www}}/terms/" style="color: #888; font-size: 12px; vertical-align: top;">Terms</a>&nbsp;&nbsp;
+                    <a href="mailto:hello@example.com" style="color: #888; font-size: 12px; vertical-align: top;">hello@example.com</a>
+                    <div class="social-icons">
+                        <a href="http://www.twitter.com/example.com"><img ng-src="{{config.servers.secured.www}}/assets/img/twitter-grey.png"></a>&nbsp;
+                        <a href="http://www.facebook.com/pages/example.com/12345"><img ng-src="{{config.servers.secured.www}}/assets/img/facebook-grey.png"></a>&nbsp;
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div style="height: 82px"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

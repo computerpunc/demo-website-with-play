@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+
+Net::HTTP.get(URI.parse('http://example.com/ping'))

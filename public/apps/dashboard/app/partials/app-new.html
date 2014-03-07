@@ -1,0 +1,21 @@
+<div class="container">
+    <h12>Add a New App</h12>
+    <hr/>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <form name="dform" ng-submit="create(dform.$valid)">
+                <div class="dashboardform-label">Enter your game/app name</div>
+                <input class="dashboardform-input" name='nameField' type='text' id='nameInput' maxlength='22' ng-model="app.name" required />
+                <div class="error-message-inline" ng-show="0==status&&dform.nameField.$invalid"><br />*Please enter an app name*</div>
+                <div class="dashboardform-label">Enter app iTunes url</div>
+                <textarea class="dashboardform-input" id='projectInput' placeholder='(optional)' rows="3" ng-model="app.downloadUrl"></textarea>
+                <div class="error-message" ng-show="0!=status&&1!=status&&200!=status"><br />*Oops, something happened... Try again.*</div>
+                <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+            </form>
+            <div id="dashboardform-button">
+                <div><a class="signup green-button-2" onclick="$('Form').submit()">Add app</a></div>
+                <br /><br /><br />
+            </div>
+        </div>
+    </div>
+</div>

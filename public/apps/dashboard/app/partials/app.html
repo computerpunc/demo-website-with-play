@@ -1,0 +1,60 @@
+<div class="container">
+    <!--UPDATE if itunes URL show app icon from appstore else show new app image-->
+    <img ng-src="{{config.servers.secured.www}}/assets/img/new-app-grey-icon-new-app-white.png" />&nbsp;&nbsp;&nbsp;<h6 style="display:inline; vertical-align:top;">{{app.name}}</h6>
+
+    <div style="display:inline; float:right;">
+        <a class="signup green-button-2" href="/downloads/sdk" ng-click="trackDownloadAndRedirect('/downloads/sdk')">Download SDK</a>
+    </div>
+    <!--<a href="#/apps/{{app.id}}/settings" style="display:inline; vertical-align:top; line-height:5.6em; margin-left:20px;">edit</a>-->
+    <hr/>
+    <div id="dashboardpage">
+        <div id="dashboardform">
+            <div id="hideoncomplete" style="width:940px" >
+                <form name="dform" enctype="multipart/form-data" id="cert-form" ng-submit="saveUsingForm(dform.$valid)">
+                    <div class="dashboardform-label">Game/app name</div>
+                    <input class="dashboardform-input" name='name' type='text' id='nameInput' ng-model="app.name" required/>
+                    <div class="app-token-newapp">APP ID: {{app.uuid}}</div>
+                    <div class="error-message-inline" ng-show="0==status&&dform.name.$invalid"><br />*Please enter an app name*</div>
+                    <div class="dashboardform-label">App iTunes url</div>
+                    <textarea class="dashboardform-input" id='projectInput' name="downloadUrl" ng-model="app.downloadUrl" rows="3"></textarea>
+                    <div class="help-apppage" style="display:inline; float:right;">Get started <a ng-href="#/apps/{{app.id}}/first">1, 2, 3 Quickstart Guide</a>
+                    </br /></br /></br />
+                   Visit our <a ng-href="{{config.servers.www}}/docs/pushcerts.html">Push Certificates Guide</a></div>
+                    <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                    <div class="dashboardform-label">Upload developer push certificate&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <input class="dashboardform-input-align-right" type='file' accept='application/x-pkcs12' value='debug' id='developercert' name="pushCert_apnsd"/>
+                    <div style="display:inline;">
+                        <div class="certificate-notinstalled" ng-hide="app.pushCert_apnsd">Not Installed</div>
+                        <div class="certificate-installed" ng-show="app.pushCert_apnsd">Installed on {{formatTimestamp(app.pushCert_apnsd.updatedOn)}}</div>
+                        <div class="error-message" ng-show="app.pushCert_apnsd&&app.pushCert_apnsd.error">*Error in Certificate*</div>
+                    </div>
+                    <!--<div ng-show="app.pushCert_apnsd">Installed on {{formatTimestamp(app.pushCert_apnsd.updatedOn)}}</div>
+                    <div ng-show="app.pushCert_apnsd&&app.pushCert_apnsd.error">Error in Certificate</div>
+                    <div ng-show="app.pushCert_apnsd&&!app.pushCert_apnsd.error">
+                    Issuer:{{app.pushCert_apnsd.issuer}}<br/>
+                    Subject:{{app.pushCert_apnsd.subject}}<br/>
+                    Expire On: {{formatTimestamp(app.pushCert_apnsd.notValidAfter)}}<br/>
+                    </div>-->
+                    <br />
+                    <div class="dashboardform-label">Upload production push certificate&nbsp;&nbsp;&nbsp;</div>
+                    <input class="dashboardform-input-align-right" type='file' accept='application/x-pkcs12' value='release' id='productioncert' name="pushCert_apns"/>
+                    <div class="certificate-notinstalled" ng-hide="app.pushCert_apns">Not Installed</div>
+                    <div class="certificate-installed" ng-show="app.pushCert_apns">Installed on {{formatTimestamp(app.pushCert_apns.updatedOn)}}</div>
+                    <div class="error-message" ng-show="app.pushCert_apns&&app.pushCert_apns.error">*Error in Certificate*</div>
+                    <!--<div ng-show="app.pushCert_apns&&!app.pushCert_apns.error">
+                    Issuer:{{app.pushCert_apnsd.issuer}}<br/>
+                    Subject:{{app.pushCert_apnsd.subject}}<br/>
+                    Expire On: {{formatTimestamp(app.pushCert_apnsd.notValidAfter)}}<br/>
+                    </div>
+                    <!--<div style="color: red; font-weight: bold; display: inline;"><br />*Wrong file format (should be .p12)*</div>-->
+                    <!--<div style="color: red; font-weight: bold; display: inline;"><br />*File is too big (maximum size 1k)*</div>-->
+                </form>
+                <div class="error-message" ng-show="0!=status&&1!=status&&200!=status"><br />*Oops, something happened... Try again.*</div>
+                <div id="dashboardform-button-app">
+                    <a a class="signup green-button-2" onclick="$('Form').submit()">Save</a>
+                    <br /><br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
